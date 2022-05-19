@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 public class PlayersController {
+
     private final PlayersRepository playersRepository;
 
     public PlayersController(PlayersRepository playersRepository) {
@@ -26,14 +27,14 @@ public class PlayersController {
     }
 
     @PostMapping("/players")
-    public ResponseEntity<players> createLab(@RequestBody players player) {
-        players result = PlayersRepository.save(player);
+    public ResponseEntity<players> members (@RequestBody players player) {
+        players members = PlayersRepository.save(player);
         return ResponseEntity
                 .ok()
-                .body(result);
+                .body(members);
     }
     @GetMapping("/players/{names}")
-    public ResponseEntity<players> getByTitle(@PathVariable String names) {
+    public ResponseEntity<players> getByName(@PathVariable String names) {
         players player = PlayersRepository.findByName(names);
         return ResponseEntity
                 .ok()

@@ -3,6 +3,7 @@ package com.example.Solo.Spring.Project.controller;
 
 import com.example.Solo.Spring.Project.model.Teams;
 import com.example.Solo.Spring.Project.repository.TeamRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +15,9 @@ import java.util.Optional;
 
 public class TeamController {
 
-    private final TeamRepository teamRepository;
+    @Autowired
+    TeamRepository teamRepository;
+
 
     public TeamController(TeamRepository teamRepository){
         this.teamRepository = teamRepository;

@@ -3,6 +3,7 @@ package com.example.Solo.Spring.Project.controller;
 import com.example.Solo.Spring.Project.model.Players;
 import com.example.Solo.Spring.Project.model.Teams;
 import com.example.Solo.Spring.Project.repository.PlayersRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,13 +15,15 @@ import java.util.Optional;
 
 public class PlayersController {
 
-    private final PlayersRepository playersRepository;
+
+    @Autowired
+    PlayersRepository playersRepository;
 
     public PlayersController(PlayersRepository playersRepository) {
         this.playersRepository = playersRepository;
     }
 
-    @GetMapping("/teams")
+    @GetMapping("/players")
     public List<Players> members() {
         List<Players> player = playersRepository.findAll();
         return playersRepository.findAll();
@@ -32,7 +35,7 @@ public class PlayersController {
 
     }
 
-    @GetMapping("/teams")
+    @GetMapping("/players")
     public ResponseEntity <Players> getPlayerById (Long id){
         Optional<Players> players = playersRepository.findById(id);
         return getPlayerById(id);

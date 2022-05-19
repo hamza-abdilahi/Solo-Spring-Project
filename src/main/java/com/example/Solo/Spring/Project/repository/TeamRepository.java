@@ -8,6 +8,5 @@ import java.util.List;
 
 public interface TeamRepository extends JpaRepository<Teams, Long> {
     @Query(value = "SELECT * FROM PLAYER ORDER BY LAST_NAME", nativeQuery = true)
-
     List<Teams> findAllOrdered();
 }

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class players {
+public class Players {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,11 +17,12 @@ public class players {
 
     @OneToMany(mappedBy = "players", cascade = CascadeType.ALL)
     private List<Teams> teams;
-    public players(){
+
+    public Players(){
 
     }
 
-    public players(Long id, String teamName, String firstName, String lastName, String position, int age, int points) {
+    public Players(Long id, String teamName, String firstName, String lastName, String position, int age, int points) {
         this.id = id;
         this.teamName = teamName;
         this.firstName = firstName;

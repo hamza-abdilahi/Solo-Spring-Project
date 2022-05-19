@@ -1,10 +1,10 @@
 package com.example.Solo.Spring.Project.repository;
 
-import com.example.Solo.Spring.Project.model.players;
+import com.example.Solo.Spring.Project.model.Players;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PlayersRepository  extends JpaRepository<players, Long>  {
+public interface PlayersRepository  extends JpaRepository<Players, Long>  {
 
 
-    static players findByName(String name);
+      Players findByFirstName(String firstName);
 }

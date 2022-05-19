@@ -1,6 +1,5 @@
 package com.example.Solo.Spring.Project.model;
 
-import javax.annotation.processing.Generated;
 import javax.persistence.*;
 
 @Entity
@@ -16,13 +15,13 @@ public class Teams {
 
     @ManyToOne
     @JoinColumn(name = "players_id")
-    private players players;
+    private Players players;
 
-    public players getPlayers() {
+    public Players getPlayers() {
         return players;
     }
 
-    public void setPlayers(players players) {
+    public void setPlayers(Players players) {
         this.players = players;
     }
 

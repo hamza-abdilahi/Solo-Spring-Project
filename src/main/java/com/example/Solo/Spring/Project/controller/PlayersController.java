@@ -1,6 +1,6 @@
 package com.example.Solo.Spring.Project.controller;
 
-import com.example.Solo.Spring.Project.model.players;
+import com.example.Solo.Spring.Project.model.Players;
 import com.example.Solo.Spring.Project.repository.PlayersRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,23 +19,23 @@ public class PlayersController {
     }
 
     @GetMapping("/players")
-    public ResponseEntity<List<players>> members () {
-        List<players> player = PlayersRepository.findAll();
+    public ResponseEntity<List<Players>> getAllMembers () {
+        List<Players> player = playersRepository.findAll();
         return ResponseEntity
                 .ok()
                 .body(player);
     }
 
     @PostMapping("/players")
-    public ResponseEntity<players> members (@RequestBody players player) {
-        players members = PlayersRepository.save(player);
+    public ResponseEntity<Players> members (@RequestBody Players player) {
+        Players members = playersRepository.save(player);
         return ResponseEntity
                 .ok()
                 .body(members);
     }
     @GetMapping("/players/{names}")
-    public ResponseEntity<players> getByName(@PathVariable String names) {
-        players player = PlayersRepository.findByName(names);
+    public ResponseEntity<Players> getByName(@PathVariable String firstName) {
+        Players player = playersRepository.findByFirstName(firstName);
         return ResponseEntity
                 .ok()
                 .body(player);

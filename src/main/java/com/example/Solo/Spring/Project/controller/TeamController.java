@@ -12,18 +12,16 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("teams")
-
 public class TeamController {
 
     @Autowired
     TeamRepository teamRepository;
 
-
     public TeamController(TeamRepository teamRepository){
         this.teamRepository = teamRepository;
     }
 
-    @GetMapping("/teams")
+    @GetMapping(value =  "/{id}")
     public List<Teams> league() {
         List<Teams> teams = teamRepository.findAll();
         return teamRepository.findAll();

@@ -11,10 +11,9 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("player")
+@RequestMapping("players")
 
 public class PlayersController {
-
 
     @Autowired
     PlayersRepository playersRepository;
@@ -23,7 +22,7 @@ public class PlayersController {
         this.playersRepository = playersRepository;
     }
 
-    @GetMapping("/players")
+    @GetMapping(value = "/{id}")
     public List<Players> members() {
         List<Players> player = playersRepository.findAll();
         return playersRepository.findAll();
